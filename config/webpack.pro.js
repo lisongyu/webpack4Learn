@@ -1,6 +1,6 @@
 
-const merge = require("webpack-merge");
-const baseConfig = require("./webpack.base");
+// const merge = require("webpack-merge");
+// const baseConfig = require("./webpack.base");
 const proConfig = {
   //入口文件配置
   mode: 'production',
@@ -10,5 +10,5 @@ const proConfig = {
   
 }
 
-
-module.exports=merge(baseConfig,proConfig)
+module.exports=proConfig
+// module.exports=merge(baseConfig,proConfig)

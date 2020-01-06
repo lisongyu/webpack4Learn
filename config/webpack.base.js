@@ -4,6 +4,10 @@ const {
   CleanWebpackPlugin
 } = require("clean-webpack-plugin");
 
+const merge = require("webpack-merge");
+const devConfig = require("./webpack.dev");
+const proConfig = require("./webpack.pro");
+
 
 const baseConfig = {
   entry: {
@@ -58,9 +62,16 @@ const baseConfig = {
       chunks: ["index"]
 
     })
-    
+
   ]
-  
+
 }
 
-module.exports=baseConfig
+// module.exports=baseConfig
+module.exports = env => {
+  if (env && env.production) {
+    return merge(baseConfig, proConfig)
+  } else {
+    return merge(baseConfig, devConfig);
+  }
+}

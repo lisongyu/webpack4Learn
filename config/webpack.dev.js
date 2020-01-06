@@ -1,7 +1,6 @@
 
 const webpack = require("webpack");
-const merge = require("webpack-merge");
-const baseConfig = require("./webpack.base");
+
 const devConfig = {
   //入口文件配置
   // mode: 'development',
@@ -34,5 +33,5 @@ const devConfig = {
   ]
 
 }
-
-module.exports=merge(baseConfig,devConfig)
+module.exports=devConfig
+// module.exports=merge(baseConfig,devConfig)
