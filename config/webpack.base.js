@@ -11,12 +11,13 @@ const proConfig = require("./webpack.pro");
 
 const baseConfig = {
   entry: {
-    index: "./src/index.js"
+    
+    main: "./src/index.js"
 
   },
   output: {
     // publicPath: "./",
-    path: path.resolve(__dirname, "./dist"),
+    path: path.resolve(__dirname, "../dist"),
     filename: "[name].js"
   },
 
@@ -53,13 +54,19 @@ const baseConfig = {
       }
     ]
   },
+  optimization: {
+    //帮助我们自动做代码分割
+    splitChunks: {
+      chunks:"all" //默认支持异步，我们使用all
+    }
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'My App',
       template: "./index.html",
-      filename: "index.html",
-      chunks: ["index"]
+      filename: "index.html"
+    
 
     })
 

@@ -8,7 +8,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "webpack --env.production --config ./config/webpack.base.js",
+    "test": "webpack  --config ./config/webpack.base.js",
     "server": "webpack-dev-server",
     "dev": "webpack-dev-server --config ./config/webpack.base.js",
     "build": "webpack --env.production --config ./config/webpack.base.js"

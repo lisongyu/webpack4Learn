@@ -11,12 +11,13 @@ module.exports = {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map', //文件跟踪
   entry: {
-    index: "./src/index.js"
+    lodash:"./src/lodash.js",
+    main: "./src/index.js"
 
   },
   output: {
     // publicPath: "./",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "../dist"),
     filename: "[name].js"
   },
   devServer: {
