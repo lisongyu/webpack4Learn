@@ -19,5 +19,11 @@ import number from "./b"
 //   document.body.appendChild(div)
 // }
 
-counter()
-number()
+counter();
+number();
+if (module.hot) {
+  module.hot.accept("./b", function () {
+    document.body.removeChild(document.getElementById("number"));
+    number();
+  })
+}

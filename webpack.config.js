@@ -41,6 +41,12 @@ module.exports = {
             limit: 2048
           }
         }
+    },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader:"babel-loader"
+
       },
       {
         test: /\.css$/,
