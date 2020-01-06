@@ -4,8 +4,8 @@
 //   console.log(res)
 // })
 
-import counter from './a';
-import number from "./b"
+// import counter from './a';
+// import number from "./b"
 
 // import "./css/index.css";
 // var btn = document.createElement("button");
@@ -19,11 +19,16 @@ import number from "./b"
 //   document.body.appendChild(div)
 // }
 
-counter();
-number();
-if (module.hot) {
-  module.hot.accept("./b", function () {
-    document.body.removeChild(document.getElementById("number"));
-    number();
-  })
-}
+// counter();
+// number();
+// if (module.hot) {
+//   module.hot.accept("./b", function () {
+//     document.body.removeChild(document.getElementById("number"));
+//     number();
+//   })
+// }
+
+const arr = [new Promise(() => { }), new Promise(() => { })];
+arr.map(item => {
+  console.log(item)
+})
