@@ -57,7 +57,16 @@ const baseConfig = {
   optimization: {
     //帮助我们自动做代码分割
     splitChunks: {
-      chunks:"all" //默认支持异步，我们使用all
+      chunks:"all", //默认支持异步，我们使用all
+      cacheGroups:{
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          name:'vendors'//设置名字
+      },
+        default:false
+      }
+
     }
   },
   plugins: [
