@@ -1,7 +1,18 @@
-import _ from 'lodash'
-import $ from 'jquery'
+import React,{Component} from 'react';
+import ReactDom from 'react-dom';
 
-const dom=$('<div>');
-dom.html(_.join(['dell','lee']),' ');
-$('body').append(dom)
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <div>
+                    This is Home page
+                </div>
+            </div>
+        )
+    }
+}
+
+ReactDom.render(<App/>,document.getElementById('app'));
+
 

@@ -11,9 +11,10 @@ const proConfig = require("./webpack.pro");
 
 const baseConfig = {
   entry: {
-    
-    main: "./src/index.js"
-
+    main: "./src/index.js",
+    list:'./src/list.js',
+    detail:'./src/detail.js'
+   
   },
   
 
@@ -53,19 +54,48 @@ const baseConfig = {
 
     }
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'My App',
-      template: "./index.html",
-      filename: "index.html"
-    
-
-    })
-
-  ]
+  
 
 }
+const makePlugins=(configs)=>{
+  const plugins=[
+    new CleanWebpackPlugin()
+  ]
+
+  
+  Object.keys(configs.entry).forEach(item=>{
+    plugins.push(
+      new HtmlWebpackPlugin({
+        title: 'My App',
+        template: "./index.html",
+        filename: `${item}.html`,
+        chunks:['vendors',item]
+      })
+    )
+   
+  })
+
+  return plugins
+ 
+}
+
+const plugins=[
+ 
+  new HtmlWebpackPlugin({
+    title: 'My App',
+    template: "./index.html",
+    filename: "index.html",
+    chunks:['vendors','main']
+  }),
+  new HtmlWebpackPlugin({
+    title: 'My List',
+    template: "./index.html",
+    filename: "list.html",
+    chunks:['vendors','list']
+  })
+]
+
+baseConfig.plugins=makePlugins(baseConfig);
 
 // module.exports=baseConfig
 module.exports = env => {
