@@ -1,4 +1,4 @@
-const path = require("path");
+
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const {
   CleanWebpackPlugin
@@ -15,13 +15,7 @@ const baseConfig = {
     main: "./src/index.js"
 
   },
-  output: {
-    // publicPath: "./",
-    path: path.resolve(__dirname, "../dist"),
-    filename: "[name].js",
-    chunkFilename:"[name].chunk.js"
-
-  },
+  
 
   module: {
     rules: [{
@@ -47,7 +41,7 @@ const baseConfig = {
   optimization: {
     //帮助我们自动做代码分割
     splitChunks: {
-      chunks:"async", //默认支持异步，我们使用all
+      chunks:"all", //默认支持异步，我们使用all
       cacheGroups:{
         vendors: {
           test: /[\\/]node_modules[\\/]/,

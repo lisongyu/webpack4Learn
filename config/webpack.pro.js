@@ -1,12 +1,20 @@
 
 // const merge = require("webpack-merge");
 // const baseConfig = require("./webpack.base");
+const path = require("path");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const proConfig = {
   //入口文件配置
   mode: 'production',
   devtool: 'cheap-module-source-map', //文件跟踪
+  output: {
+    // publicPath: "./",
+    path: path.resolve(__dirname, "../dist"),
+    filename: "[name].[contenthash].js",
+    chunkFilename:"[name].[contenthash].js"
+
+  },
 
   //开启tree shking
   module:{

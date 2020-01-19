@@ -1,11 +1,18 @@
 
 const webpack = require("webpack");
-
+const path = require("path");
 const devConfig = {
   //入口文件配置
   // mode: 'development',
   mode: 'development',
   devtool: 'cheap-module-eval-source-map', //文件跟踪
+  output: {
+    // publicPath: "./",
+    path: path.resolve(__dirname, "../dist"),
+    filename: "[name].js",
+    chunkFilename:"[name].js"
+
+  },
  
   devServer: {
     contentBase: './dist', //资源目录
