@@ -1,5 +1,6 @@
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+const { entries } = require("./entrys");
 const {
   CleanWebpackPlugin
 } = require("clean-webpack-plugin");
@@ -10,12 +11,13 @@ const proConfig = require("./webpack.pro");
 
 
 const baseConfig = {
-  entry: {
-    main: "./src/index.js",
-    list:'./src/list.js',
-    detail:'./src/detail.js'
+  // entry: {
+  //   main: "./src/index.js",
+  //   list:'./src/list.js',
+  //   detail:'./src/detail.js'
    
-  },
+  // },
+  entry:entries(),
   
 
   module: {
